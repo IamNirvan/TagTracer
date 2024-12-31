@@ -1,4 +1,4 @@
-package com.tagtracer.rfid.reader;
+package com.tagtracer.rfid;
 
 import com.rscja.deviceapi.entity.Gen2Entity;
 import com.tagtracer.util.IDisposable;

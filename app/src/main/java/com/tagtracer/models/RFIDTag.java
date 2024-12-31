@@ -1,4 +1,4 @@
-package com.tagtracer.rfid.tag;
+package com.tagtracer.models;
 
 public class RFIDTag {
     private String tid;

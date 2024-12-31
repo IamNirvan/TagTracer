@@ -1,14 +1,12 @@
-package com.tagtracer.rfid.reader;
+package com.tagtracer.rfid;
 
 import android.content.Context;
 import android.util.Log;
 
 import com.tagtracer.enums.ERFIDReaderType;
-import com.tagtracer.rfid.reader.chainway.ChainwayReaderV1;
+import com.tagtracer.rfid.chainway.ChainwayReaderV1;
 
 import org.jetbrains.annotations.NotNull;
-
-import java.util.Objects;
 
 import dagger.hilt.android.qualifiers.ApplicationContext;
 

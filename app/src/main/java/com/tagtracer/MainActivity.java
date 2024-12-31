@@ -10,8 +10,8 @@ import android.view.KeyEvent;
 import android.widget.Toast;
 
 import com.tagtracer.fragments.loading.LoadingFragmentV2;
-import com.tagtracer.rfid.reader.IRFIDReader;
-import com.tagtracer.rfid.reader.RFIDReaderFactory;
+import com.tagtracer.rfid.IRFIDReader;
+import com.tagtracer.rfid.RFIDReaderFactory;
 import com.tagtracer.util.BuildInfo;
 import com.tagtracer.util.IDisposable;
 import com.tagtracer.util.callbacks.IKeyEventCallback;

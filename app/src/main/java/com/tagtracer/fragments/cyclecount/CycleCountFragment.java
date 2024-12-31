@@ -1,8 +1,6 @@
 package com.tagtracer.fragments.cyclecount;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,18 +9,26 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.tagtracer.MainActivity;
 import com.tagtracer.databinding.FragmentCyclecountBinding;
-import com.tagtracer.rfid.reader.IRFIDReader;
+import com.tagtracer.models.RFIDTag;
+import com.tagtracer.rfid.IRFIDReader;
 import com.tagtracer.util.IDisposable;
+import com.tagtracer.util.TagConsumer;
+import com.tagtracer.util.adaptors.RFIDTagRecyclerViewAdaptor;
 import com.tagtracer.util.callbacks.IKeyEventCallback;
+
+import java.util.ArrayList;
 
 public class CycleCountFragment extends Fragment implements IDisposable, IKeyEventCallback {
     public static final String TAG = CycleCountFragment.class.getName();
     private FragmentCyclecountBinding binding;
     private IRFIDReader reader;
     private boolean isReading;
+    private ArrayList<RFIDTag> tags;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -34,12 +40,21 @@ public class CycleCountFragment extends Fragment implements IDisposable, IKeyEve
 
         // Set the key event callbacks
         ((MainActivity) requireActivity()).setKeyEventCallback(this);
+
+        // TODO: remove this after testing
+        this.tags = this.generateMockTags(10);
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         this.binding = FragmentCyclecountBinding.inflate(inflater, container, false);
+
+        RecyclerView recyclerView = this.binding.rvScannedItems;
+        RFIDTagRecyclerViewAdaptor adaptor = new RFIDTagRecyclerViewAdaptor(requireContext(), this.tags);
+        recyclerView.setAdapter(adaptor);
+        recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
+
         return this.binding.getRoot();
     }
 
@@ -87,4 +102,13 @@ public class CycleCountFragment extends Fragment implements IDisposable, IKeyEve
             }
         }
     }
+
+    private ArrayList<RFIDTag> generateMockTags(int count) {
+        final ArrayList<RFIDTag> response = new ArrayList<>();
+        for(int x = 0; x < count; x++) {
+            response.add(new RFIDTag(String.format("tid-%s", x), String.format("rssi-%s", x)));
+        }
+        return response;
+    }
+
 }

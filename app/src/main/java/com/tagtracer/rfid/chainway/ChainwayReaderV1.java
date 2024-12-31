@@ -1,4 +1,4 @@
-package com.tagtracer.rfid.reader.chainway;
+package com.tagtracer.rfid.chainway;
 
 import android.content.Context;
 import android.util.Log;
@@ -8,8 +8,8 @@ import com.rscja.deviceapi.entity.Gen2Entity;
 import com.rscja.deviceapi.entity.UHFTAGInfo;
 import com.rscja.deviceapi.exception.ConfigurationException;
 import com.tagtracer.enums.ERFIDReaderSession;
-import com.tagtracer.rfid.reader.IRFIDReader;
-import com.tagtracer.rfid.tag.RFIDTag;
+import com.tagtracer.rfid.IRFIDReader;
+import com.tagtracer.models.RFIDTag;
 
 import org.jetbrains.annotations.NotNull;
 
