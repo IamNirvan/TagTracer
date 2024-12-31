@@ -47,7 +47,7 @@ dependencies {
 
     // Setup imported libs
     implementation(fileTree("dir" to "src", "include" to listOf("*.aar", "*.jar")))
-    implementation(files("libs/DeviceAPI_ver20241125_release.aar"))
+    implementation(files("libs/DeviceAPI_ver20230228_release.aar"))
 
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.9.0")
