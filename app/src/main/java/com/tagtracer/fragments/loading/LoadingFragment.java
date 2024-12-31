@@ -1,4 +1,4 @@
-package com.example.tagtracer.fragments.loading;
+package com.tagtracer.fragments.loading;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -13,9 +13,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.tagtracer.R;
-import com.example.tagtracer.databinding.FragmentLoadingBinding;
-import com.example.tagtracer.util.IDisposable;
+import com.tagtracer.R;
+import com.tagtracer.databinding.FragmentLoadingBinding;
+import com.tagtracer.util.IDisposable;
 
 public class LoadingFragment extends Fragment implements IDisposable {
     private static final String TAG = LoadingFragment.class.getName();

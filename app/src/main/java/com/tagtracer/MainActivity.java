@@ -1,4 +1,4 @@
-package com.example.tagtracer;
+package com.tagtracer;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -6,7 +6,7 @@ import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
 
-import com.example.tagtracer.fragments.loading.LoadingFragmentV2;
+import com.tagtracer.fragments.loading.LoadingFragmentV2;
 
 import org.jetbrains.annotations.NotNull;
 
