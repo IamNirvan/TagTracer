@@ -45,6 +45,11 @@ public class ChainwayReaderV1 extends IRFIDReader {
     }
 
     @Override
+    public Queue<RFIDTag> getQueue() {
+        return this.queue;
+    }
+
+    @Override
     public boolean setPowerLevel(int power) throws RuntimeException {
         if (this.reader == null) {
             Log.e(TAG, "setPowerLevel: reader instance is null");
@@ -179,7 +184,8 @@ public class ChainwayReaderV1 extends IRFIDReader {
             while (readTag) {
                 tag = reader.readTagFromBuffer();
                 if (tag != null) {
-                    Log.d(TAG, "callback: epc = " + tag.getEPC());
+                    queue.add(new RFIDTag(tag.getEPC(), tag.getRssi()));
+                    Log.d(TAG, "epc = " + tag.getEPC());
                 }
             }
         }

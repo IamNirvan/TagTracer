@@ -18,12 +18,17 @@ import java.util.ArrayList;
 import dagger.hilt.android.qualifiers.ApplicationContext;
 
 public class RFIDTagRecyclerViewAdaptor extends RecyclerView.Adapter<RFIDTagRecyclerViewAdaptor.MyViewHolder> {
-    private Context context;
+    private final Context context;
     private ArrayList<RFIDTag> tags;
 
     public RFIDTagRecyclerViewAdaptor(@ApplicationContext Context context, ArrayList<RFIDTag> tags) {
         this.context = context;
         this.tags = tags;
+    }
+
+    public void submitList(ArrayList<RFIDTag> newTags) {
+        tags = newTags;
+        notifyDataSetChanged();
     }
 
     @NonNull

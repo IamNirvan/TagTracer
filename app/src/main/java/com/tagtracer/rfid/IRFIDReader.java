@@ -1,12 +1,17 @@
 package com.tagtracer.rfid;
 
 import com.rscja.deviceapi.entity.Gen2Entity;
+import com.tagtracer.models.RFIDTag;
 import com.tagtracer.util.IDisposable;
 
 import java.util.Map;
+import java.util.Queue;
 
 public abstract class IRFIDReader implements IDisposable {
+    private Queue<RFIDTag> queue;
     public boolean readTag;
+
+    public abstract Queue<RFIDTag> getQueue();
     //
     // Power level
     //
